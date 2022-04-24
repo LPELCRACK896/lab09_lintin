@@ -1,0 +1,39 @@
+{
+  "name": "lab08_react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --config webpack.config.js --open",
+    "build": "webpack --config webpack.config.js",
+    "import_gen": "nodemon import_gen.js"
+  },
+  "keywords": [],
+  "author": "L-Dev",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.4",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "react-router-dom": "^6.3.0",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4",
+    "wepack-cli": "^0.0.1-security"
+  },
+  "dependencies": {
+    "html-loader": "^3.1.0",
+    "react": "^18.0.0",
+    "react-audio-player": "^0.17.0",
+    "react-card-flip": "^1.1.5",
+    "react-dom": "^18.0.0",
+    "react-hook-use-state": "^1.1.0"
+  }
+}

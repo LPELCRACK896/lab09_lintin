@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Poppins:wght@200&family=VT323&display=swap');
+*{
+    font-family: 'VT323', monospace;
+}
+
+#game-grid{
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 80px;
+    row-gap: 50px;
+    padding: 30px;
+/*     border: 2px solid whitesmoke;
+    border-radius: 10px; */
+}
+.card{
+    margin: 20px;
+    padding: 0;
+    margin: 0px;
+    height: 400px;
+    position: relative;
+    text-align: center;
+    border-radius: 25px;
+
+}
+/* #win-screen{
+
+
+} */
+.card-container{
+    margin: 1px;
+    color: whitesmoke;
+    border-radius: 25px;
+    height: 400px;
+    max-width: 290px;
+    text-align: center;
+}
+#win-dialogue{
+    background-color: black;
+    border: 5px whitesmoke solid;
+    border-radius: 25px;
+    width: 600px;
+    height: 500px;
+    margin: 60px;
+    position: fixed;
+    
+}
+#you-win-image{
+    margin-top: 50px;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+
+}
+#main-menu-image{
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    border: 1px whitesmoke solid;
+    border-radius: 25px;
+    padding: 10px;
+
+}
+
+.card img{
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto; 
+    border-radius: 25px;
+    margin: 0;
+    
+}
+header{
+    height: 80px;
+    border-bottom: 1px whitesmoke solid;
+    display: flex; 
+    justify-content: space-between;
+    position: static;
+}
+header #logo{
+    height: 80%;
+    margin: 10px;
+}
+header p{
+    color: whitesmoke;
+    bottom: 5px;
+    border: 0px whitesmoke solid;
+    font-size: 50%;
+    margin: 0;
+    position: absolute;
+}
+.flex-item-container{
+    height: 100%;
+    width: fit-content;
+    position: relative;
+    color: whitesmoke;
+    bottom: 0px;
+    display: flex;
+}
+.div-text{
+    width: fit-content;
+    bottom: 0px;
+    color: white;
+    font-size: 30px;
+    overflow: hidden;
+    margin: 10px;
+    padding: 10px;
+}
