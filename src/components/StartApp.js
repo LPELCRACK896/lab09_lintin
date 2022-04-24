@@ -1,14 +1,12 @@
-import React, { Component } from 'react'
-import './startApp.css'
+/* eslint-disable react/jsx-filename-extension *//* eslint-disable react/prefer-stateless-function */
+import React, { Component } from 'react';
+import './startApp.css';
 
-let message = "Welcome to react";
+const message = 'Welcome to react';
 class StartApp extends Component {
-  
   render() {
-    return (
-      <div className='font-white-xl'>Hola mundo</div>
-    )
+    return <div className="font-white-xl">Hola mundo</div>;
   }
 }
 
-export default StartApp
+export default StartApp;

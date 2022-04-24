@@ -1,21 +1,20 @@
 import React, { Component } from 'react'
 import "./styles/game_style.css"
+import { Link } from 'react-router-dom'
 import Card from './Card'
 import logo from './assets/memory_game_pixel.png'
-import { Link } from 'react-router-dom'
-import random_memory_setup from './random_game_setup'
+import randomMemorySetUp from './random_game_setup'
 import YouWin from './assets/YouWin.png'
 import BackToMenu from './assets/BackToMenu.png'
-const cards_info = require ('./cards_info')
+
+const cardsInfo = require ('./cards_info')
 
 class Game extends React.Component {
   constructor(props){
     super(props)
     this.state = {
       moves: 0,
-      record: 0,
       setup: [],
-      oldPoints: 0,
       points: 0,
       win: false, 
       first_card_flipped: null,
@@ -23,42 +22,48 @@ class Game extends React.Component {
       flipped: new Map(),
       coincidio: null
     }
-    this.state.setup = random_memory_setup()
+    const {setup, flipped} = this.state
+    this.state.setup = randomMemorySetUp()
     this.clickRegisterCardSelected = this.clickRegisterCardSelected.bind(this);
     this.resetFlip = this.resetFlip.bind(this)
-    this.state.setup.map(id => this.state.flipped.set(id, false))
+    setup.map(id => flipped.set(id, false))
 
   }
+
   resetFlip(firstId, secondId){
-    this.state.flipped.set(firstId, !this.state.flipped.get(firstId))
-    this.state.flipped.set(secondId, !this.state.flipped.get(secondId))
+    const {flipped} = this.state
+
+    flipped.set(firstId, !flipped.get(firstId))
+    flipped.set(secondId, !flipped.get(secondId))
 
   }
+
   clickRegisterCardSelected($event) {
+    
     $event.preventDefault();
     if($event.target.className!="front"&&$event.target.className!=null){//SI tiene un ID valido pues
-      if(!this.state.solved.includes(cards_info.find(card => card.id==$event.target.className))){
+      if(!this.state.solved.includes(cardsInfo.find(card => card.id==$event.target.className))){
         if (this.state.first_card_flipped==null){
           //No se ha volteado ninguna carta
-          this.state.flipped.set(cards_info.find(card => card.id==$event.target.className).id, true)
-          this.state.first_card_flipped= cards_info.find(card => card.id==$event.target.className)
+          this.state.flipped.set(cardsInfo.find(card => card.id==$event.target.className).id, true)
+          this.state.first_card_flipped= cardsInfo.find(card => card.id==$event.target.className)
           this.state.count_cards_flipped +=1
           
         }else{
           //Se esta volteando la segunda carta
-          this.state.flipped.set(cards_info.find(card => card.id==$event.target.className).id, true)
+          this.state.flipped.set(cardsInfo.find(card => card.id==$event.target.className).id, true)
           if (this.state.first_card_flipped.pair_id
-            ==cards_info.find(card => card.id==$event.target.className).id)
+            ==cardsInfo.find(card => card.id==$event.target.className).id)
           {
             this.state.coincidio = true
             this.state.points +=1
-            this.state.solved.push(cards_info.find(card => card.id==$event.target.className).id)
+            this.state.solved.push(cardsInfo.find(card => card.id==$event.target.className).id)
             this.state.solved.push((this.state.first_card_flipped.id))
           }else{
               //No coincide la segunda carta
               this.state.coincidio = false
               //Esto tengo que hacer que lo haga después de un tiempo, para que se vea la segunda carta
-              this.resetFlip(cards_info.find(card => card.id==$event.target.className).id,this.state.first_card_flipped.id )    
+              this.resetFlip(cardsInfo.find(card => card.id==$event.target.className).id,this.state.first_card_flipped.id )    
           }
           this.state.first_card_flipped= null
           

@@ -27,3 +27,17 @@ Al mismo nivel que el package.json crear el archivo: .prettierrc
 ```
 
 Aqui van reglas.
+
+### Eslint
+
+Instalamos
+
+```
+npm i -g eslint
+```
+
+Inicializamos archivo
+
+```
+npm init @eslint/config
+```
